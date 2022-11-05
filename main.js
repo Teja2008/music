@@ -16,4 +16,5 @@ function play(){
 }
 function pause(){
     song.pause();
+    console.log("pause")
 }
