@@ -13,7 +13,7 @@ function setup(){
 
 }
 function gotPoses(results){
-    if(results.length){
+    if(results.length > 0){
         console.log(results)
         leftwristx= results[0].pose.leftWrist.x
         leftwristy= results[0].pose.leftWrist.y
