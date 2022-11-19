@@ -3,6 +3,7 @@ leftwristx= 0;
 leftwristy = 0;
 rightwristx= 0;
 rightwristy = 0;
+score_leftwrist= 0;
 function setup(){
     canvas= createCanvas(600,500)
     canvas.center()
@@ -15,6 +16,8 @@ function setup(){
 function gotPoses(results){
     if(results.length > 0){
         console.log(results)
+        score_leftwrist= results[0].pose.keypoints[9].score
+        console.log(score_leftwrist)
         leftwristx= results[0].pose.leftWrist.x
         leftwristy= results[0].pose.leftWrist.y
         rightwristx= results[0].pose.rightWrist.x
@@ -32,6 +35,22 @@ song= loadSound("music.mp3")
 }
 function draw(){
     image(video,0,0,600,500)
+    fill("#F90000")
+    stroke("#F90000")
+    circle(leftwristx,leftwristy,15)
+    InNumberleftwristy= Number(leftwristy)
+    remove_decimals= floor(InNumberleftwristy)
+    volume= remove_decimals/500
+    if(score_leftwrist >0.2){
+        fill("#F90000")
+    stroke("#F90000")
+    circle(leftwristx,leftwristy,15)
+    InNumberleftwristy= Number(leftwristy)
+    remove_decimals= floor(InNumberleftwristy)
+    volume= remove_decimals/500
+    document.getElementById("volume").innerHTML= volume
+    song.setVolume(volume)
+    }
 }
 function play(){
     song.play();
