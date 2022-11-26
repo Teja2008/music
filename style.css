@@ -3,12 +3,12 @@
     font-size: larger;
     margin-top: 0px;
 }
-#speed{
+.speed_1{
     float:left;
    
     
 }
-#volume{
+.volume_1{
     float:right;
     
 }
@@ -42,4 +42,14 @@ body{
 canvas{
     border: 5px dotted rgb(25, 0, 255);
     border-radius: 20px; 
+}
+#speed{
+    margin:15px;
+    font-size: 25px;
+    color:crimson;
+}
+#volume{
+    margin:15px;
+    font-size: 25px;
+    color:crimson;
 }
